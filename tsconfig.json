@@ -5,8 +5,9 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "removeComments": false,
-    "noImplicityAny": true
+    "noImplicitAny": false
   },
   "exclude": [
     "node_modules",
