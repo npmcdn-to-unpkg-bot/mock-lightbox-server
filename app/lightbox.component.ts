@@ -3,7 +3,7 @@ import {RouteParams} from 'angular2/router';
 
 @Component({
     selector: 'fsc-lightbox',
-    template: '<a href="{{returnUrl}}" target="FollettUniversalSearch">{{returnUrl}}</a>',
+    template: '<div>returnUrl={{returnUrl}}</div><a href="{{returnUrl}}" target="FollettUniversalSearch">{{returnUrl}}</a>',
     inputs: ['returnUrl']
 })
 
@@ -13,8 +13,10 @@ export class LightBoxComponent implements OnInit {
     constructor(private _routeParams: RouteParams) {}
 
     ngOnInit() {
-        this.returnUrl = decodeURIComponent(this._routeParams.get('returnUrl'));
-        this.returnUrl = this.returnUrl + "&s=lightbox&q=dogs"
+        if(this._routeParams.get('returnUrl')){
+            this.returnUrl = decodeURIComponent(this._routeParams.get('returnUrl'));
+            this.returnUrl = this.returnUrl + "&s=lightbox&q=dogs"
+        }
     }
 
 }
